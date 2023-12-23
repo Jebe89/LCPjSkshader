@@ -25,7 +25,7 @@ Shader "LCPjSkshader/Base"
 		_SpecularBias("Specular Bias", Range( 0 , 10)) = 0.2
 		_CtrlTex("OptionMaskMap (_ctrl)", 2D) = "black" {}
 		[Header(Rim)][Toggle]_Use_DisRimMask("Use_DisRimMask", Float) = 0
-		[Toggle]_UseRimMaskPJSK("Use Rim Mask(PJSK)", Float) = 0
+		[Toggle]_UseRimMaskPJSK("Use Rim Mask(PJSK)", Float) = 1
 		[HDR]_RimColor("RimColor", Color) = (1,1,1,0.4)
 		_RimStep("RimStep", Range( -1 , 1)) = 0.5
 		_RimFeather("RimFeather", Range( 0 , 1)) = 0.3
@@ -2231,7 +2231,6 @@ Node;AmplifyShaderEditor.GetLocalVarNode;393;-1653.258,-2000.805;Inherit;False;3
 Node;AmplifyShaderEditor.RegisterLocalVarNode;399;-1219.791,-1946.913;Inherit;False;shaded_diff;-1;True;1;0;COLOR;0,0,0,0;False;1;COLOR;0
 Node;AmplifyShaderEditor.RegisterLocalVarNode;370;-1439.36,-2264.215;Inherit;False;toon_diff;-1;True;1;0;COLOR;0,0,0,0;False;1;COLOR;0
 Node;AmplifyShaderEditor.GetLocalVarNode;1154;38.32639,2479.795;Inherit;False;646;Alpha;1;0;OBJECT;;False;1;FLOAT;0
-Node;AmplifyShaderEditor.GetLocalVarNode;1166;-2872.676,-2126.469;Inherit;False;1164;SkinMask;1;0;OBJECT;;False;1;FLOAT;0
 Node;AmplifyShaderEditor.LerpOp;1168;-2617.136,-2250.593;Inherit;False;3;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;FLOAT;0;False;1;COLOR;0
 Node;AmplifyShaderEditor.LerpOp;1167;-2609.087,-2455.666;Inherit;False;3;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;FLOAT;0;False;1;COLOR;0
 Node;AmplifyShaderEditor.RegisterLocalVarNode;646;-3086.647,-2319.674;Inherit;False;Alpha;-1;True;1;0;FLOAT;0;False;1;FLOAT;0
@@ -2257,7 +2256,7 @@ Node;AmplifyShaderEditor.ToggleSwitchNode;1179;-276.6227,2717.447;Inherit;False;
 Node;AmplifyShaderEditor.VertexColorNode;1171;-486.7697,2734.96;Inherit;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.RangedFloatNode;737;-466.605,2625.922;Inherit;False;Property;_OutlineWidth;OutlineWidth;89;0;Create;True;0;0;0;False;0;False;0;0;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.VertexColorNode;1173;-1836.033,2294.913;Inherit;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ToggleSwitchNode;1180;-1627.25,2264.365;Inherit;False;Property;_UseRimMaskPJSK;Use Rim Mask(PJSK);21;0;Create;True;0;0;0;False;0;False;0;True;2;0;FLOAT;1;False;1;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.ToggleSwitchNode;1180;-1627.25,2264.365;Inherit;False;Property;_UseRimMaskPJSK;Use Rim Mask(PJSK);21;0;Create;True;0;0;0;False;0;False;1;True;2;0;FLOAT;1;False;1;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.ToggleSwitchNode;354;-1786.329,1835.548;Inherit;False;Property;_Use_DisRimMask;Use_DisRimMask;20;0;Create;True;0;0;0;False;1;Header(Rim);False;0;True;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;1073;-3848.393,1809.729;Inherit;False;2;2;0;FLOAT3;0,0,0;False;1;FLOAT;0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.ToggleSwitchNode;1074;-3500.17,1666.258;Inherit;False;Property;_NoShadowinDirectionalLightColor;NoShadow in DirectionalLightColor;12;0;Create;True;0;0;0;False;0;False;1;True;2;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT3;0
@@ -2280,6 +2279,7 @@ Node;AmplifyShaderEditor.ToggleSwitchNode;875;-3783.043,2148.614;Inherit;False;P
 Node;AmplifyShaderEditor.CustomExpressionNode;1181;-3973.351,2105.729;Inherit;False;return ShadeSH9(Normal)@;3;Create;1;True;Normal;FLOAT4;0,0,0,0;In;;Half;False;ShadeSH9out;False;False;0;;False;1;0;FLOAT4;0,0,0,0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.SimpleMaxOpNode;1184;-3471.353,2153.692;Inherit;False;2;0;FLOAT3;0,0,0;False;1;FLOAT;0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.SimpleMinOpNode;1185;-3337.473,2198.021;Inherit;False;2;0;FLOAT3;0,0,0;False;1;FLOAT;0;False;1;FLOAT3;0
+Node;AmplifyShaderEditor.GetLocalVarNode;1166;-2872.676,-2126.469;Inherit;False;1164;SkinMask;1;0;OBJECT;;False;1;FLOAT;0
 WireConnection;580;0;621;0
 WireConnection;580;1;579;0
 WireConnection;582;0;580;0
@@ -2707,4 +2707,4 @@ WireConnection;1184;1;303;0
 WireConnection;1185;0;1184;0
 WireConnection;1185;1;301;0
 ASEEND*/
-//CHKSM=9809A416B48F305924A57E58D976FBE2BE222C74
+//CHKSM=FECC26038678FDB799C4C97E1CA85DE6450435F0
